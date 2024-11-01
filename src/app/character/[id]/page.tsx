@@ -17,12 +17,12 @@ const CharacterDetail = async ({ params }: { params: { id: string } }) => {
     const character: Character = await res.json();
 
     return (
-        <div className='px-5 flex'>
-            <div className='w-[50%]'>
-                <figure className='w-[50%]'>
+        <div className='px-5 flex gap-10'>
+            <div className='w-[30%]'>
+                <figure className='w-[100%]'>
                     <Image className='w-full' src={character.image} width={500} height={500} alt={character.name} />
                 </figure>
-                <h1 className='text-[30px] font-bold'>{character.name}</h1>
+                <h1 className='text-[30px] my-5 font-bold'>{character.name}</h1>
                 <div className='flex items-center gap-3'>
                     <h2>Estado: {character.status}</h2>
                     {character.status == 'Dead' ? <FaCircle fill='red' /> : <FaCircle fill='green' />}
@@ -33,7 +33,7 @@ const CharacterDetail = async ({ params }: { params: { id: string } }) => {
                 </p>
                 <p>Genero: {character.gender}</p>
             </div>
-            <div>
+            <div className='w-[40%]'>
                 <p className='text-[30px]'>Ubicado en: {character.location.name}</p>
                 <p className='text-[30px]'>Viene de: {character.origin.name}</p>
             </div>
