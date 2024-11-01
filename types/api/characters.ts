@@ -2,7 +2,6 @@ interface Location {
   name: string;
   url: string;
 }
-
 export interface Character {
   id: number;
   name: string;
@@ -16,16 +15,4 @@ export interface Character {
   episode: string[];
   url: string;
   created: string;
-}
-
-export interface CharacterInfoResponse {
-  count: number;
-  next: string | null;
-  pages: number;
-  prev: string | null;
-}
-
-export interface ResponseCharacter {
-  results: Character[];
-  info: CharacterInfoResponse;
 }

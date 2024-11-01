@@ -1,4 +1,6 @@
-
-export default function LocationsPage(){
-    
+export default function LocationPage(){
+    return(
+        <>
+        </>
+    )
 }

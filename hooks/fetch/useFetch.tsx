@@ -1,28 +1,22 @@
-'use client'
+// useFetch.ts
+import { useState } from "react";
+import { ResponseCharacter, ResponseEpisode } from "../../types/api/response";
 
-import { useState } from "react"
-import { ResponseCharacter } from "../../types/api/characters";
-
-const useFetch = () => {
-
-    const [dataFetch, setDataFetch] = useState<ResponseCharacter | null>(null);
+const useFetch = <T extends ResponseCharacter | ResponseEpisode>() => {
+    const [dataFetch, setDataFetch] = useState<T | null>(null);
 
     const fetchData = async (url: string) => {
         try {
-            const response = await fetch(url)
-            const data = await response.json()
+            const response = await fetch(url);
+            const data: T = await response.json();
             setDataFetch(data);
             console.log(data);
         } catch (error) {
-            console.log(error)
+            console.log(error);
         }
-    }
-    return (
-        {
-            fetchData,
-            dataFetch
-        }
-    )
-}
+    };
 
-export default useFetch
+    return { fetchData, dataFetch };
+};
+
+export default useFetch;

@@ -1,3 +1,9 @@
-export default function EpisodesPage(){
-    
+import EpisodesContainer from "@/components/episodes/EpisodesContainer";
+
+export default function EpisodesPage() {
+    return (
+        <>
+            <EpisodesContainer />
+        </>
+    )
 }

@@ -6,10 +6,10 @@ const Paginator: React.FC<{ props: CharacterInfoResponse; onPrevious: () => void
     return (
         <div className='flex gap-10 mt-10 justify-center'>
             <div>
-                {props.prev && <MdNavigateBefore size={50} onClick={onPrevious} />}
+                {props.prev && <MdNavigateBefore className='cursor-pointer' size={50} onClick={onPrevious} />}
             </div>
             <div>
-                {props.next && <MdNavigateNext size={50} onClick={onNext} />}
+                {props.next && <MdNavigateNext className='cursor-pointer' size={50} onClick={onNext} />}
             </div>
         </div>
     );
