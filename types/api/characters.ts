@@ -18,7 +18,7 @@ export interface Character {
   created: string;
 }
 
-interface CharacterInfoResponse {
+export interface CharacterInfoResponse {
   count: number;
   next: string | null;
   pages: number;

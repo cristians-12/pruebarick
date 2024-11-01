@@ -4,7 +4,7 @@ import { Character } from "../../types/api/characters";
 export const favoritesSlice = createSlice({
   name: "favorites",
   initialState: {
-    value: [] as Character[],
+    value: [{ id: 1 }] as Character[],
   },
   reducers: {
     addFavorite: (state, action: PayloadAction<Character>) => {
