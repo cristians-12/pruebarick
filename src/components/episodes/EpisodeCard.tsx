@@ -13,7 +13,7 @@ const EpisodeCard: React.FC<{ episode: Episode }> = ({ episode }) => {
     const isFavorite = favorites.some(element => element.id === episode.id);
 
     return (
-        <Link className='w-[20%]' href={`/episode/${episode.id}`}>
+        <Link className='w-[40%] h-[100px]' href={`episodes/episode/${episode.id}`}>
             <motion.div
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: 'spring', stiffness: 300 }}
