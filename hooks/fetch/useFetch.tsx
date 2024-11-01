@@ -1,13 +1,13 @@
 'use client'
 
 import { useState } from "react"
-import { Character } from "../../types/api/characters";
+import { ResponseCharacter } from "../../types/api/characters";
 
 const useFetch = () => {
 
-    const [dataFetch, setDataFetch] = useState<Character[] | null>(null);
+    const [dataFetch, setDataFetch] = useState<ResponseCharacter | null>(null);
 
-    const getAllCharacters = async (url: string) => {
+    const fetchData = async (url: string) => {
         try {
             const response = await fetch(url)
             const data = await response.json()
@@ -18,7 +18,7 @@ const useFetch = () => {
     }
     return (
         {
-            getAllCharacters,
+            fetchData,
             dataFetch
         }
     )

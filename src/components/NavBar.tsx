@@ -5,13 +5,13 @@ import { IoSearchOutline } from 'react-icons/io5'
 const NavBar: React.FC<{ children: ReactNode }> = ({ children }) => {
     return (
         <>
-            <nav className='flex justify-between items-center lg:px-10 bg-slate-600 py-3'>
+            <nav className='flex fixed z-50 top-0 w-screen justify-between items-center lg:px-10 bg-slate-600 py-3'>
                 <figure className='text-[#7FB226] text-[1.5rem] font-bold cursor-pointer'>
                     RickMortyApp
                 </figure>
 
                 <div className='flex gap-3 items-center cursor-pointer'>
-                    <CiHeart size={25}/>
+                    <CiHeart size={25} />
                     Favorites
 
                 </div>
@@ -22,8 +22,6 @@ const NavBar: React.FC<{ children: ReactNode }> = ({ children }) => {
             </nav>
             {children}
         </>
-
-
     )
 }
 
