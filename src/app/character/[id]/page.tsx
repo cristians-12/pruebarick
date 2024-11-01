@@ -1,14 +1,11 @@
-// app/character/[id]/page.tsx
 import React from 'react';
 import { Character } from '../../../../types/api/characters';
 import Image from 'next/image';
 import { FaCircle } from 'react-icons/fa';
 
-interface CharacterDetailProps {
-    params: { id: string };
-}
 
-const CharacterDetail = async ({ params }: CharacterDetailProps) => {
+
+const CharacterDetail = async ({ params }: { params: { id: string } }) => {
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_CHARACTERS_URL}/${params.id}`, {
         cache: 'no-store',
     });
