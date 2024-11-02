@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import { item } from "../../../utils/motion";
 import Link from "next/link";
 import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
-import { FaHeart, FaRegHeart } from "react-icons/fa";
+import { FaCircle, FaHeart, FaRegHeart } from "react-icons/fa";
 import {
   addFavorite,
   removeFavorite,
@@ -39,7 +39,21 @@ const CharacterCard: React.FC<{ character: Character }> = ({ character }) => {
           height={100}
           alt={character.name}
         />
-        <span className="font-bold w-full">{character.name}</span>
+        <span className="font-bold w-full flex justify-between items-center">
+          {character.name} {character.status === "Dead" ?
+            (
+              <>
+
+                <FaCircle fill="red" size={10} />
+              </>
+            ) : character.status === "Alive" ? (
+              <>
+
+                <FaCircle fill="lightgreen" size={10} />
+              </>
+            ) : (
+              <FaCircle fill='gray' size={10} />
+            )}</span>
 
         <span className="font-bold w-full">{character.species}</span>
       </Link>
