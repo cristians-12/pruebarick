@@ -10,6 +10,7 @@ import usePaginator from '../../../hooks/usePaginator';
 import { ResponseCharacter } from '../../../types/api/response';
 import { API_CHARACTERS_URL } from '../../../constants';
 import { useAppSelector } from '../../../redux/hooks';
+import Loader from '../Loader';
 
 const CharactersContainer = () => {
     const { fetchData, dataFetch } = useFetch<ResponseCharacter>();
@@ -25,7 +26,7 @@ const CharactersContainer = () => {
 
     return (
         <>
-            {dataFetch && (
+            {dataFetch ? (
                 <>
                     <motion.ul initial="hidden" animate="visible" className="flex gap-10 mt-3 justify-around flex-wrap" variants={container}>
                         {dataFetch.results.map((character: Character) => (
@@ -34,7 +35,12 @@ const CharactersContainer = () => {
                     </motion.ul>
                     <Paginator props={dataFetch.info} onPrevious={() => handlePrevious(dataFetch)} onNext={() => handleNext(dataFetch)} />
                 </>
-            )}
+            )
+            :
+            (
+                <Loader/>
+            )
+        }
         </>
     );
 };

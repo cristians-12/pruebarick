@@ -24,13 +24,13 @@ const CharacterCard: React.FC<{ character: Character }> = ({ character }) => {
     <motion.div
       whileHover={{ scale: 1.05 }}
       transition={{ type: "spring", stiffness: 300 }}
-      className=" cursor-pointer flex flex-col lg:w-[20%] w-[44%] items-center justify-center gap-3"
+      className=" cursor-pointer flex flex-col lg:w-[20%] w-[44%] items-center justify-center gap-3 bg-slate-50 text-black rounded-2xl py-2 lg:overflow-hidden"
       variants={item}
       key={character.id}
     >
       <Link
         href={`/character/${character.id}`}
-        className="w-full flex flex-col gap-1"
+        className="w-full flex flex-col px-3 gap-1"
       >
         <img
           src={character.image}
@@ -57,7 +57,7 @@ const CharacterCard: React.FC<{ character: Character }> = ({ character }) => {
 
         <span className="font-bold w-full">{character.species}</span>
       </Link>
-      <div className="flex w-full justify-between items-center">
+      <div className="flex w-full justify-between px-3 items-center">
         <span className="font-bold">{character.location.name}</span>
         {isFavorite ? (
           <FaHeart
