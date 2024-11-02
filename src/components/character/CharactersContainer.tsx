@@ -16,7 +16,7 @@ const CharactersContainer = () => {
     const { handleNext, handlePrevious } = usePaginator(fetchData);
 
     const page = useAppSelector(
-        (page)=>page.pageSlice.value
+        (page)=>page.pageReducer.value
     )
 
     useEffect(() => {
