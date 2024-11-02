@@ -39,8 +39,8 @@ export default function CharacterDetail() {
 
   return (
     <div className="">
-      <div className="px-5 flex gap-10">
-        <div className="w-[30%]">
+      <div className="px-5 lg:flex gap-10">
+        <div className="lg:w-[30%]">
           <figure className="w-[100%]">
             <img
               className="w-full"
@@ -78,11 +78,11 @@ export default function CharacterDetail() {
             <span className="font-bold">Género:</span> {character.gender}
           </p>
         </div>
-        <div className="w-[70%]">
+        <div className="lg:w-[70%]">
           <p className="text-[30px]">Ubicado en: {character.location.name}</p>
           <p className="text-[30px]">Viene de: {character.origin.name}</p>
           <p>Episodios en los que aparece el personaje:</p>
-          <div className="flex flex-wrap gap-[20%] w-full lg:h-[70vh] p-20 overflow-x-hidden lg:overflow-y-scroll">
+          <div className="lg:flex flex-wrap gap-[20%] w-full lg:h-[70vh] lg:p-20 overflow-x-hidden lg:overflow-y-scroll">
             {episodes.map((episode: Episode) => (
               <EpisodeCard episode={episode} key={episode.id} />
             ))}
