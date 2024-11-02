@@ -1,33 +1,47 @@
-import React from "react";
+'use client'
+import React, { useEffect, useState } from "react";
 import { Character } from "../../../../types/api/characters";
 import Image from "next/image";
 import { FaCircle } from "react-icons/fa";
 import Link from "next/link";
 import { Episode } from "../../../../types/api/episodes";
 import EpisodeCard from "@/components/episodes/EpisodeCard";
+import { API_CHARACTERS_URL } from "../../../../constants";
+import { useParams } from "next/navigation";
 
-interface CharacterDetailParams {
-  id: string;
-}
 
-interface CharacterDetailProps {
-  params: CharacterDetailParams;
-}
+export default function CharacterDetail() {
+  const [character, setCharacter] = useState<Character | null>(null);
+  const [episodes, setEpisodes] = useState<Episode[]>([]);
 
-export default async function CharacterDetail({ params }: CharacterDetailProps) {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_CHARACTERS_URL}/${params.id}`,
-    {
-      cache: "no-store",
-    }
-  );
+  const { id } = useParams();
 
-  const character: Character = await res.json();
+  console.log(id)
 
-  const episodePromises = character.episode.map((url) =>
-    fetch(url).then((res) => res.json())
-  );
-  const episodes: Episode[] = await Promise.all(episodePromises);
+  const fetchCharacter = async () => {
+    const res = await fetch(
+      `${API_CHARACTERS_URL}/${id}`
+    );
+    const character: Character = await res.json();
+    setCharacter(character);
+
+    // Fetch episodes
+    const episodePromises = character.episode.map((url) =>
+      fetch(url).then((res) => res.json())
+    );
+    const episodes: Episode[] = await Promise.all(episodePromises);
+    setEpisodes(episodes);
+  };
+
+  useEffect(() => {
+
+    fetchCharacter();
+
+  }, []);
+
+  if (!character) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div className="">
