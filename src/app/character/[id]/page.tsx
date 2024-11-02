@@ -79,9 +79,14 @@ export default function CharacterDetail() {
           </p>
         </div>
         <div className="lg:w-[70%]">
-          <p className="text-[30px]">Ubicado en: {character.location.name}</p>
-          <p className="text-[30px]">Viene de: {character.origin.name}</p>
-          <p>Episodios en los que aparece el personaje:</p>
+          <p className="lg:text-[30px]">
+            <span className="font-bold">Ubicado en:</span>{" "}
+            {character.location.name}
+          </p>
+          <p className="lg:text-[30px]">
+            <span className="font-bold">Viene de:</span> {character.origin.name}
+          </p>
+          <p className="my-3 font-bold">Episodios en los que aparece el personaje:</p>
           <div className="lg:flex flex-wrap gap-[20%] w-full lg:h-[70vh] lg:p-20 overflow-x-hidden lg:overflow-y-scroll">
             {episodes.map((episode: Episode) => (
               <EpisodeCard episode={episode} key={episode.id} />
