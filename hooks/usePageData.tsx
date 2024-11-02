@@ -40,8 +40,11 @@ const usePageData = () => {
     return (
         {
             character,
+            characters,
+            episode,
             episodes,
             changeCharacter,
+            changeCharacters,
             changeEpisodes,
             changeEpisode,
             changeLocation,
