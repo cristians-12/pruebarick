@@ -8,9 +8,9 @@ import { Location } from "../types/api/locations";
 const usePageData = () => {
     const [character, setCharacter] = useState<Character | null>(null);
     const [episodes, setEpisodes] = useState<Episode[]>([]);
-    const [episode, setEpisode] = useState<Episode>();
+    const [episode, setEpisode] = useState<Episode | null>();
     const [characters, setCharacters] = useState<Character[]>();
-    const [location, setLocation] = useState<Location>();
+    const [location, setLocation] = useState<Location | null>();
     const [locations, setLocations] = useState<Location[]>();
 
     const changeCharacter = (character: Character) => {
