@@ -1,7 +1,7 @@
-'use client'
-import React, { useEffect} from "react";
+"use client";
+import React, { useEffect } from "react";
 import { Character } from "../../../../types/api/characters";
-import Image from "next/image";
+// import Image from "next/image";
 import { FaCircle } from "react-icons/fa";
 import Link from "next/link";
 import { Episode } from "../../../../types/api/episodes";
@@ -11,16 +11,14 @@ import { useParams } from "next/navigation";
 import Loader from "@/components/Loader";
 import usePageData from "../../../../hooks/usePageData";
 
-
 export default function CharacterDetail() {
-  const {character, episodes, changeCharacter, changeEpisodes} = usePageData();
+  const { character, episodes, changeCharacter, changeEpisodes } =
+    usePageData();
 
   const { id } = useParams();
 
   const fetchCharacter = async () => {
-    const res = await fetch(
-      `${API_CHARACTERS_URL}/${id}`
-    );
+    const res = await fetch(`${API_CHARACTERS_URL}/${id}`);
     const character: Character = await res.json();
     changeCharacter(character);
 
@@ -32,13 +30,11 @@ export default function CharacterDetail() {
   };
 
   useEffect(() => {
-
     fetchCharacter();
-
   }, []);
 
   if (!character) {
-    return <Loader/>;
+    return <Loader />;
   }
 
   return (
@@ -46,11 +42,9 @@ export default function CharacterDetail() {
       <div className="px-5 flex gap-10">
         <div className="w-[30%]">
           <figure className="w-[100%]">
-            <Image
+            <img
               className="w-full"
               src={character.image}
-              width={500}
-              height={500}
               alt={character.name}
             />
           </figure>

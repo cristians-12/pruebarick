@@ -30,3 +30,7 @@ Este proyecto es una aplicación web desarrollada con Next.js y Redux para explo
    ```bash
    git clone https://github.com/tu-usuario/rick-morty-app.git
    cd rick-morty-app
+2. Instala las dependencias
+   npm install
+3. Finalmente ejecutar proyecto en servidor local
+   npm run dev
