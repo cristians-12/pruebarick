@@ -1,4 +1,3 @@
-// src/app/character/[id]/page.tsx
 import React from "react";
 import { Character } from "../../../../types/api/characters";
 import Image from "next/image";
@@ -7,13 +6,13 @@ import Link from "next/link";
 import { Episode } from "../../../../types/api/episodes";
 import EpisodeCard from "@/components/episodes/EpisodeCard";
 
-interface CharacterPageProps {
-  params: {
-    id: string;
-  };
-}
+// interface CharacterPageProps {
+//   params: {
+//     id: string;
+//   };
+// }
 
-export default async function CharacterDetail({ params }: CharacterPageProps) {
+export default async function CharacterDetail({ params }: Promise<{ id: string }>) {
   // Fetch character details
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_API_CHARACTERS_URL}/${params.id}`,
@@ -24,7 +23,6 @@ export default async function CharacterDetail({ params }: CharacterPageProps) {
 
   const character: Character = await res.json();
 
-  // Fetch episodes concurrently
   const episodePromises = character.episode.map((url) =>
     fetch(url).then((res) => res.json())
   );
