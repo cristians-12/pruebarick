@@ -5,12 +5,12 @@ import { container } from '../../../utils/motion';
 import { motion } from 'framer-motion';
 import Paginator from '../Paginator';
 import usePaginator from '../../../hooks/usePaginator';
-import { ResponseEpisode } from '../../../types/api/response';
+import { ResponseLocation } from '../../../types/api/response';
 import { Location } from '../../../types/api/locations';
 import LocationCard from './LocationCard';
 
 const LocationContainer = () => {
-    const { fetchData, dataFetch } = useFetch<ResponseEpisode>();
+    const { fetchData, dataFetch } = useFetch<ResponseLocation>();
     const { handleNext, handlePrevious } = usePaginator(fetchData);
 
     useEffect(() => {
@@ -19,6 +19,7 @@ const LocationContainer = () => {
 
     return (
         <>
+            <p className="text-[30px] px-5 my-5">Ubicaciones:</p>
             {dataFetch && (
                 <>
                     <motion.ul initial="hidden" animate="visible" className="flex gap-10 justify-around flex-wrap" variants={container}>

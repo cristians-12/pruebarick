@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { ResponseCharacter, ResponseEpisode } from "../../types/api/response";
 
-const useFetch = <T extends ResponseCharacter | ResponseEpisode>() => {
+const useFetch = <T extends ResponseCharacter | ResponseEpisode | ResponseLocation>() => {
     const [dataFetch, setDataFetch] = useState<T | null>(null);
 
     const fetchData = async (url: string) => {

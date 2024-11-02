@@ -1,3 +1,4 @@
+'use client'
 import React from "react";
 import { Character } from "../../../types/api/characters";
 import { motion } from "framer-motion";
