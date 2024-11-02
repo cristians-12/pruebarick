@@ -8,13 +8,14 @@ import { Character } from '../../../types/api/characters';
 import Paginator from '../Paginator';
 import usePaginator from '../../../hooks/usePaginator';
 import { ResponseCharacter } from '../../../types/api/response';
+import { API_CHARACTERS_URL } from '../../../constants';
 
 const CharactersContainer = () => {
     const { fetchData, dataFetch } = useFetch<ResponseCharacter>();
     const { handleNext, handlePrevious } = usePaginator(fetchData);
 
     useEffect(() => {
-        fetchData(`${process.env.NEXT_PUBLIC_API_CHARACTERS_URL}`);
+        fetchData(`${API_CHARACTERS_URL}`);
     }, []);
 
     return (
