@@ -20,7 +20,7 @@ const CharactersContainer = () => {
     )
 
     useEffect(() => {
-        fetchData(`${API_CHARACTERS_URL}/${page}`);
+        fetchData(`${API_CHARACTERS_URL}/?page=${page}`);
     }, []);
 
     return (

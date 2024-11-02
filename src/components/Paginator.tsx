@@ -2,12 +2,18 @@ import React from "react";
 
 import { MdNavigateBefore, MdNavigateNext } from "react-icons/md";
 import { InfoResponse } from "../../types/api/response";
+import { useAppDispatch } from "../../redux/hooks";
+import { prevPage } from "../../redux/features/pageSlice";
+
 
 const Paginator: React.FC<{
   props: InfoResponse;
   onPrevious: () => void;
   onNext: () => void;
 }> = ({ props, onPrevious, onNext }) => {
+  
+const dispatch = useAppDispatch();
+
   return (
     <div className="flex gap-10 mt-10 justify-center">
       <div>
@@ -15,7 +21,10 @@ const Paginator: React.FC<{
           <MdNavigateBefore
             className="cursor-pointer"
             size={50}
-            onClick={onPrevious}
+            onClick={()=>{
+              onPrevious();
+              dispatch(prevPage())
+            }}
           />
         )}
       </div>
