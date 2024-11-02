@@ -3,7 +3,7 @@ import React from 'react';
 import { Episode } from '../../../../../types/api/episodes';
 
 
-const CharacterDetail = async ({ params }: { params: { id: string } }) => {
+const LocationDetail = async ({ params }: { params: { id: string } }) => {
 
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_EPISODES_URL}/${params.id}`, {
         cache: 'no-store',
@@ -28,4 +28,4 @@ const CharacterDetail = async ({ params }: { params: { id: string } }) => {
     );
 };
 
-export default CharacterDetail;
+export default LocationDetail;

@@ -21,7 +21,7 @@ const CharactersContainer = () => {
         <>
             {dataFetch && (
                 <>
-                    <motion.ul initial="hidden" animate="visible" className="flex gap-10 justify-around flex-wrap" variants={container}>
+                    <motion.ul initial="hidden" animate="visible" className="flex gap-10 mt-3 justify-around flex-wrap" variants={container}>
                         {dataFetch.results.map((character: Character) => (
                             <CharacterCard character={character} key={character.id} />
                         ))}

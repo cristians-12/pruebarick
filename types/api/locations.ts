@@ -1,10 +1,8 @@
 export interface Location {
-    id: number;
-    name: string;
-    characters: string[];
-    air_date: string;
-    url: string;
-    episode: string;
-    created: string;
-  }
-  
+  id: number;
+  name: string;
+  dimension: string;
+  residents: string[];
+  type: string;
+  url: string;
+}

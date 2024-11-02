@@ -2,6 +2,7 @@ import React from 'react';
 import { Character } from '../../../../types/api/characters';
 import Image from 'next/image';
 import { FaCircle } from 'react-icons/fa';
+import { div } from 'framer-motion/client';
 
 
 
@@ -23,9 +24,25 @@ const CharacterDetail = async ({ params }: { params: { id: string } }) => {
                     <Image className='w-full' src={character.image} width={500} height={500} alt={character.name} />
                 </figure>
                 <h1 className='text-[30px] my-5 font-bold'>{character.name}</h1>
-                <div className='flex items-center gap-3'>
-                    <h2>Estado: {character.status}</h2>
-                    {character.status == 'Dead' ? <FaCircle fill='red' /> : <FaCircle fill='green' />}
+                <div className='flex items-center gap-2'>
+                    <h2>Estado:</h2>
+                    {character.status == 'Dead' ?
+                        (
+                            <>
+                                Muerto
+                                <FaCircle fill='red' size={10} />
+                            </>
+                        )
+                        :
+                        character.status == 'Alive' ?
+                            (
+                                <>
+                                    Vivo
+                                    <FaCircle fill='lightgreen' size={10} />
+                                </>
+                            )
+                            :
+                            <>Desconocido</>}
                 </div>
                 <h3>Especie: {character.species}</h3>
                 <p>
