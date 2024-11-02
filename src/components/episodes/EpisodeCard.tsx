@@ -29,7 +29,7 @@ const EpisodeCard: React.FC<{ episode: Episode }> = ({ episode }) => {
         key={episode.id}
       >
         <Link
-          href={`episodes/episode/${episode.id}`}
+          href={`/episode/${episode.id}`}
           className="font-bold w-full"
         >
           {episode.name}

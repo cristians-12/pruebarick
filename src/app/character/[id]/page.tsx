@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect, useState } from "react";
+import React, { useEffect} from "react";
 import { Character } from "../../../../types/api/characters";
 import Image from "next/image";
 import { FaCircle } from "react-icons/fa";

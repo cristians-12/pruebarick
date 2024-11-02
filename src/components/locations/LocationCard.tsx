@@ -28,10 +28,7 @@ const LocationCard: React.FC<{ location: Location }> = ({ location }) => {
         key={location.id}
       >
         <div className="flex justify-between w-full">
-          <Link
-            href={`locations/location/${location.id}`}
-            className="font-bold w-full"
-          >
+          <Link href={`/location/${location.id}`} className="font-bold w-full">
             {location.name}
           </Link>
           <p>Tipo: {location.type}</p>

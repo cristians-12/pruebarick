@@ -1,11 +1,11 @@
 'use client'
 import React, { useEffect } from "react";
-import { Episode } from "../../../../../types/api/episodes";
-import { Character } from "../../../../../types/api/characters";
+import { Episode } from "../../../../types/api/episodes";
+import { Character } from "../../../../types/api/characters";
 import CharacterCard from "@/components/character/CharacterCard";
-import { API_EPISODES_URL } from "../../../../../constants";
+import { API_EPISODES_URL } from "../../../../constants";
 import { useParams } from "next/navigation";
-import usePageData from "../../../../../hooks/usePageData";
+import usePageData from "../../../../hooks/usePageData";
 import Loader from "@/components/Loader";
 
 const EpisodeDetail = () => {
