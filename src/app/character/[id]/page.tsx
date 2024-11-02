@@ -7,10 +7,16 @@ import Link from "next/link";
 import { Episode } from "../../../../types/api/episodes";
 import EpisodeCard from "@/components/episodes/EpisodeCard";
 
-const CharacterDetail = async ({ params }: { params: { id: string } }) => {
+const CharacterDetail = async ({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) => {
+  const resolvedParams = await params;
+
   // Fetch character details
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_CHARACTERS_URL}/${params.id}`,
+    `${process.env.NEXT_PUBLIC_API_CHARACTERS_URL}/${resolvedParams.id}`,
     {
       cache: "no-store",
     }
@@ -22,7 +28,7 @@ const CharacterDetail = async ({ params }: { params: { id: string } }) => {
 
   const character: Character = await res.json();
 
-  // Fetch episodes concurrently
+
   const episodePromises = character.episode.map((url) =>
     fetch(url).then((res) => res.json())
   );
@@ -61,7 +67,10 @@ const CharacterDetail = async ({ params }: { params: { id: string } }) => {
           <h3>
             <span className="font-bold">Especie:</span> {character.species}
           </h3>
-          <Link className="cursor-pointer" href={`/locations/location/${character.id}`}>
+          <Link
+            className="cursor-pointer"
+            href={`/locations/location/${character.id}`}
+          >
             Origen: {character.origin.name}
           </Link>
           <p>
@@ -73,7 +82,7 @@ const CharacterDetail = async ({ params }: { params: { id: string } }) => {
           <p className="text-[30px]">Viene de: {character.origin.name}</p>
           <p>Episodios en los que aparece el personaje:</p>
           <div className="flex flex-wrap gap-[20%] w-full lg:h-[70vh] p-20 overflow-x-hidden lg:overflow-y-scroll">
-            {episodes.map((episode) => (
+            {episodes.map((episode: Episode) => (
               <EpisodeCard episode={episode} key={episode.id} />
             ))}
           </div>
