@@ -33,6 +33,7 @@ const EpisodeCard: React.FC<{ episode: Episode }> = ({ episode }) => {
           className="font-bold w-full"
         >
           {episode.name}
+          <p>{episode.air_date}</p>
         </Link>
         <div className="flex w-full justify-between items-center">
           <span className="font-bold">{episode.episode}</span>
