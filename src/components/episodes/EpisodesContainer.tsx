@@ -8,13 +8,14 @@ import usePaginator from "../../../hooks/usePaginator";
 import EpisodeCard from "./EpisodeCard";
 import { Episode } from "../../../types/api/episodes";
 import { ResponseEpisode } from "../../../types/api/response";
+import { API_EPISODES_URL } from "../../../constants";
 
 const EpisodesContainer = () => {
   const { fetchData, dataFetch } = useFetch<ResponseEpisode>();
   const { handleNext, handlePrevious } = usePaginator(fetchData);
 
   useEffect(() => {
-    fetchData(`${process.env.NEXT_PUBLIC_API_EPISODES_URL}`);
+    fetchData(`${API_EPISODES_URL}`);
   }, []);
 
   return (

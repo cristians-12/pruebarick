@@ -16,8 +16,6 @@ export default function CharacterDetail() {
 
   const { id } = useParams();
 
-  console.log(id)
-
   const fetchCharacter = async () => {
     const res = await fetch(
       `${API_CHARACTERS_URL}/${id}`

@@ -8,13 +8,14 @@ import usePaginator from '../../../hooks/usePaginator';
 import { ResponseLocation } from '../../../types/api/response';
 import { Location } from '../../../types/api/locations';
 import LocationCard from './LocationCard';
+import { API_LOCATIONS_URL } from '../../../constants';
 
 const LocationContainer = () => {
     const { fetchData, dataFetch } = useFetch<ResponseLocation>();
     const { handleNext, handlePrevious } = usePaginator(fetchData);
 
     useEffect(() => {
-        fetchData(`${process.env.NEXT_PUBLIC_API_LOCATIONS_URL}`);
+        fetchData(`${API_LOCATIONS_URL}`);
     }, []);
 
     return (
