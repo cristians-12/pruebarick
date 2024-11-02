@@ -1,4 +1,4 @@
-import { ResponseCharacter } from "../types/api/characters";
+import { ResponseCharacter } from "../types/api/response";
 
 const usePaginator = (fetchData: (url: string) => Promise<void>) => {
     const handlePrevious = (data: ResponseCharacter) => {
