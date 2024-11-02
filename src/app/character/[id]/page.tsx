@@ -7,28 +7,24 @@ import Link from "next/link";
 import { Episode } from "../../../../types/api/episodes";
 import EpisodeCard from "@/components/episodes/EpisodeCard";
 
-const CharacterDetail = async ({
-  params,
-}: {
-  params: Promise<{ id: string }>;
-}) => {
-  const resolvedParams = await params;
+interface CharacterPageProps {
+  params: {
+    id: number;
+  };
+}
 
+export default async function CharacterDetail({ params }: CharacterPageProps) {
   // Fetch character details
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_CHARACTERS_URL}/${resolvedParams.id}`,
+    `${process.env.NEXT_PUBLIC_API_CHARACTERS_URL}/${params.id}`,
     {
       cache: "no-store",
     }
   );
 
-  if (!res.ok) {
-    throw new Error("Failed to fetch character details");
-  }
-
   const character: Character = await res.json();
 
-
+  // Fetch episodes concurrently
   const episodePromises = character.episode.map((url) =>
     fetch(url).then((res) => res.json())
   );
@@ -90,6 +86,4 @@ const CharacterDetail = async ({
       </div>
     </div>
   );
-};
-
-export default CharacterDetail;
+}
