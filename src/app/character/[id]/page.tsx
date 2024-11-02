@@ -6,12 +6,15 @@ import Link from "next/link";
 import { Episode } from "../../../../types/api/episodes";
 import EpisodeCard from "@/components/episodes/EpisodeCard";
 
-interface CharacterDetailParams{
-  id:string;
+interface CharacterDetailParams {
+  id: string;
 }
 
+interface CharacterDetailProps {
+  params: CharacterDetailParams;
+}
 
-export default async function CharacterDetail({ params }: Promise<CharacterDetailParams>) {
+export default async function CharacterDetail({ params }: CharacterDetailProps) {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_API_CHARACTERS_URL}/${params.id}`,
     {
