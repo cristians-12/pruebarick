@@ -2,12 +2,14 @@ import { configureStore } from "@reduxjs/toolkit";
 import favoritesReducer from "./features/favoritesSlice";
 import favoritesEpisodesReducer from "./features/favEpisodesSlice";
 import favoritesLocationReducer from "./features/favLocationSlice";
+import pageReducer from "./features/pageSlice";
 
 export const store = configureStore({
   reducer: {
     favoritesReducer,
     favoritesEpisodesReducer,
-    favoritesLocationReducer
+    favoritesLocationReducer,
+    pageReducer,
   },
 });
 

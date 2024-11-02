@@ -9,13 +9,18 @@ import Paginator from '../Paginator';
 import usePaginator from '../../../hooks/usePaginator';
 import { ResponseCharacter } from '../../../types/api/response';
 import { API_CHARACTERS_URL } from '../../../constants';
+import { useAppSelector } from '../../../redux/hooks';
 
 const CharactersContainer = () => {
     const { fetchData, dataFetch } = useFetch<ResponseCharacter>();
     const { handleNext, handlePrevious } = usePaginator(fetchData);
 
+    const page = useAppSelector(
+        (page)=>page.pageSlice.value
+    )
+
     useEffect(() => {
-        fetchData(`${API_CHARACTERS_URL}`);
+        fetchData(`${API_CHARACTERS_URL}/${page}`);
     }, []);
 
     return (
