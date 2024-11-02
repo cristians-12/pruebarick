@@ -1,20 +1,29 @@
 // pages/character/[id].tsx
-import React from "react";
+import React, { useEffect } from "react";
 import { Character } from "../../../../../types/api/characters";
 import CharacterCard from "@/components/character/CharacterCard";
 import { Location } from "../../../../../types/api/locations";
+import { useParams } from "next/navigation";
+import { API_LOCATIONS_URL } from "../../../../../constants";
 
-const LocationDetail = async ({ params }: { params: { id: string } }) => {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_LOCATIONS_URL}/${params.id}`,
-    {
-      cache: "no-store",
-    }
+const LocationDetail = () => {
+  const { id } = useParams();
+  const res = fetch(
+    `${process.env.NEXT_PUBLIC_API_LOCATIONS_URL}/${id}`
   );
 
-  if (!res.ok) {
-    throw new Error("Failed to fetch location details");
-  }
+  const fetchLocation = async () => {
+    const res = await fetch(
+      `${API_LOCATIONS_URL}/${id}`
+    );
+  };
+
+  useEffect(
+    () => {
+      fetchLocation()
+    }, []
+  )
+
 
   const location: Location = await res.json();
 
