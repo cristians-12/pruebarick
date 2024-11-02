@@ -2,7 +2,7 @@
 import React from "react";
 import { Character } from "../../../types/api/characters";
 import { motion } from "framer-motion";
-import Image from "next/image";
+// import Image from "next/image";
 import { item } from "../../../utils/motion";
 import Link from "next/link";
 import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
