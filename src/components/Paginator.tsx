@@ -1,8 +1,9 @@
 import React from 'react';
-import { CharacterInfoResponse } from '../../types/api/characters';
-import { MdNavigateBefore, MdNavigateNext } from 'react-icons/md';
 
-const Paginator: React.FC<{ props: CharacterInfoResponse; onPrevious: () => void; onNext: () => void }> = ({ props, onPrevious, onNext }) => {
+import { MdNavigateBefore, MdNavigateNext } from 'react-icons/md';
+import { InfoResponse } from '../../types/api/response';
+
+const Paginator: React.FC<{ props: InfoResponse; onPrevious: () => void; onNext: () => void }> = ({ props, onPrevious, onNext }) => {
     return (
         <div className='flex gap-10 mt-10 justify-center'>
             <div>
