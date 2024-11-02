@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React, { ReactNode } from "react";
 // import { CiHeart } from 'react-icons/ci'
-import { IoSearchOutline } from "react-icons/io5";
+// import { IoSearchOutline } from "react-icons/io5";
 
 const NavBar: React.FC<{ children: ReactNode }> = ({ children }) => {
   return (
