@@ -9,7 +9,7 @@ import EpisodeCard from "@/components/episodes/EpisodeCard";
 
 interface CharacterPageProps {
   params: {
-    id: number;
+    id: string;
   };
 }
 
