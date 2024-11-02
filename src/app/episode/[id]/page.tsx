@@ -38,7 +38,7 @@ const EpisodeDetail = () => {
     <div className="px-5">
       {episode ? (
         <>
-          <h1 className="text-[30px] font-bold">{episode.name}</h1>
+          <h1 className="text-[30px] font-bold"><span className="font-bold">Episodio:</span> {episode.name}</h1>
           <h2 className="text-[20px]">
             Fecha de salida al aire: {episode.air_date}
           </h2>

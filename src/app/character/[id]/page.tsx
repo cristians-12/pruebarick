@@ -70,7 +70,7 @@ export default function CharacterDetail() {
           </h3>
           <Link
             className="cursor-pointer"
-            href={`/locations/location/${character.id}`}
+            href={`/location/${character.id}`}
           >
             Origen: {character.origin.name}
           </Link>
