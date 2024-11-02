@@ -8,11 +8,12 @@ import { Episode } from "../../../../types/api/episodes";
 import EpisodeCard from "@/components/episodes/EpisodeCard";
 import { API_CHARACTERS_URL } from "../../../../constants";
 import { useParams } from "next/navigation";
+import Loader from "@/components/Loader";
+import usePageData from "../../../../hooks/usePageData";
 
 
 export default function CharacterDetail() {
-  const [character, setCharacter] = useState<Character | null>(null);
-  const [episodes, setEpisodes] = useState<Episode[]>([]);
+  const {character, episodes, changeCharacter, changeEpisodes} = usePageData();
 
   const { id } = useParams();
 
@@ -21,14 +22,13 @@ export default function CharacterDetail() {
       `${API_CHARACTERS_URL}/${id}`
     );
     const character: Character = await res.json();
-    setCharacter(character);
+    changeCharacter(character);
 
-    // Fetch episodes
     const episodePromises = character.episode.map((url) =>
       fetch(url).then((res) => res.json())
     );
     const episodes: Episode[] = await Promise.all(episodePromises);
-    setEpisodes(episodes);
+    changeEpisodes(episodes);
   };
 
   useEffect(() => {
@@ -38,7 +38,7 @@ export default function CharacterDetail() {
   }, []);
 
   if (!character) {
-    return <div>Loading...</div>;
+    return <Loader/>;
   }
 
   return (

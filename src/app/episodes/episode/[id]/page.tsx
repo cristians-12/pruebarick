@@ -1,20 +1,33 @@
-// pages/character/[id].tsx
-import React from "react";
+'use client'
+import React, { useEffect } from "react";
 import { Episode } from "../../../../../types/api/episodes";
 import { Character } from "../../../../../types/api/characters";
 import CharacterCard from "@/components/character/CharacterCard";
+import { API_EPISODES_URL } from "../../../../../constants";
+import { useParams } from "next/navigation";
 
-const CharacterDetail = async ({ params }: { params: { id: string } }) => {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_EPISODES_URL}/${params.id}`,
-    {
-      cache: "no-store",
-    }
-  );
+const CharacterDetail =  () => {
+  const { id } = useParams();
 
-  if (!res.ok) {
-    throw new Error("Failed to fetch character details");
-  }
+  const fetchEpisode = async () => {
+    const res = await fetch(
+      `${API_EPISODES_URL}/${id}`
+    );
+    const character: Character = await res.json();
+    setCharacter(character);
+
+    const episodePromises = character.episode.map((url) =>
+      fetch(url).then((res) => res.json())
+    );
+    const episodes: Episode[] = await Promise.all(episodePromises);
+    setEpisodes(episodes);
+  };
+
+  useEffect(() => {
+
+    fetchEpisode();
+
+  }, []);
 
   const episode: Episode = await res.json();
 

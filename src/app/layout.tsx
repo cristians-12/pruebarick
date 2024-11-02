@@ -16,7 +16,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "RickAPI",
+  title: "Rick n Morty APP",
   description: "Proyecto prueba consumiendo API gratuita de Rick y Morty",
 };
 
