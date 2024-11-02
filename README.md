@@ -8,6 +8,7 @@ Este proyecto es una aplicación web desarrollada con Next.js y Redux para explo
 - **Detalles de personaje**: Muestra información detallada sobre cada personaje.
 - **Funcionalidad de favoritos**: Agrega o elimina personajes de favoritos usando Redux para manejar el estado de favoritos.
 - **Animaciones**: Interactividad mejorada con animaciones de `framer-motion`.
+- **Almacenamiento de favoritos**: Se puede guardar en una base de datos no relacional toda la informacion de los favoritos del usuario, sean capitulos, personajes o lugares.
 
 ## Tecnologías utilizadas
 
@@ -17,6 +18,7 @@ Este proyecto es una aplicación web desarrollada con Next.js y Redux para explo
 - **Framer Motion**: Biblioteca para animaciones en React.
 - **React Icons**: Iconos para React.
 - **Rick and Morty API**: API pública para obtener los datos de personajes y ubicaciones.
+- **Firebase**: Almacenamiento de favoritos.
 
 ## Requisitos previos
 
