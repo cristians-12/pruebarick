@@ -3,7 +3,7 @@ import React from "react";
 import { MdNavigateBefore, MdNavigateNext } from "react-icons/md";
 import { InfoResponse } from "../../types/api/response";
 import { useAppDispatch } from "../../redux/hooks";
-import { prevPage } from "../../redux/features/pageSlice";
+import { nextPage, prevPage } from "../../redux/features/pageSlice";
 
 
 const Paginator: React.FC<{
@@ -33,7 +33,10 @@ const dispatch = useAppDispatch();
           <MdNavigateNext
             className="cursor-pointer"
             size={50}
-            onClick={onNext}
+            onClick={()=>{
+              onNext();
+              dispatch(nextPage())
+            }}
           />
         )}
       </div>
