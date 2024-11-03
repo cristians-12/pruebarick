@@ -12,9 +12,12 @@ export const pageSlice = createSlice({
     nextPage: (state) => {
       state.value += 1;
     },
+    resetPage: (state) => {
+      state.value = 1;
+    }
   },
 });
 
-export const { prevPage, nextPage } = pageSlice.actions;
+export const { prevPage, nextPage, resetPage } = pageSlice.actions;
 
 export default pageSlice.reducer;

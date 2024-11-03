@@ -1,15 +1,17 @@
 "use client";
 import Link from "next/link";
 import React, { ReactNode } from "react";
-import { useAppSelector } from "../../redux/hooks";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { IoSearchOutline } from "react-icons/io5";
 import useNavbar from "../../hooks/navbar/useNavbar";
+import { resetPage } from "../../redux/features/pageSlice";
 // import { CiHeart } from 'react-icons/ci'
 // import { IoSearchOutline } from "react-icons/io5";
 
 const NavBar: React.FC<{ children: ReactNode }> = ({ children }) => {
   const busqueda = useAppSelector((busqueda) => busqueda.searchReducer.value);
-  const {handleInput} = useNavbar();
+  const { handleInput } = useNavbar();
+  const dispatch = useAppDispatch();
 
   return (
     <>
@@ -28,12 +30,14 @@ const NavBar: React.FC<{ children: ReactNode }> = ({ children }) => {
         <Link
           className="flex hover:text-green-400 gap-3 items-center cursor-pointer"
           href={"/episodes"}
+          onClick={() => dispatch(resetPage())}
         >
           Episodios
         </Link>
         <Link
           className="flex hover:text-green-400 gap-3 items-center cursor-pointer"
           href={"/locations"}
+          onClick={() => dispatch(resetPage())}
         >
           Ubicaciones
         </Link>
