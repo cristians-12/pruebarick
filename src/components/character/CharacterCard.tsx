@@ -40,25 +40,26 @@ const CharacterCard: React.FC<{ character: Character }> = ({ character }) => {
           alt={character.name}
         />
         <span className="font-bold w-full flex justify-between items-center">
-          {character.name} {character.status === "Dead" ?
-            (
-              <>
-
-                <FaCircle fill="red" size={10} />
-              </>
-            ) : character.status === "Alive" ? (
-              <>
-
-                <FaCircle fill="green" size={10} />
-              </>
-            ) : (
-              <FaCircle fill='gray' size={10} />
-            )}</span>
+          <span className="w-[60%] text-ellipsis overflow-hidden whitespace-nowrap">
+            {character.name}
+          </span>{" "}
+          {character.status === "Dead" ? (
+            <>
+              <FaCircle fill="red" size={10} />
+            </>
+          ) : character.status === "Alive" ? (
+            <>
+              <FaCircle fill="green" size={10} />
+            </>
+          ) : (
+            <FaCircle fill="gray" size={10} />
+          )}
+        </span>
 
         <span className="font-bold w-full">{character.species}</span>
       </Link>
       <div className="flex w-full justify-between px-3 items-center">
-        <span className="font-bold">{character.location.name}</span>
+        <span className="font-bold w-[60%] text-ellipsis overflow-hidden whitespace-nowrap">{character.location.name}</span>
         {isFavorite ? (
           <FaHeart
             fill="red"
