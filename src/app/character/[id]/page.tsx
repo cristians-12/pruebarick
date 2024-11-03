@@ -37,9 +37,9 @@ export default function CharacterDetail() {
   }
 
   return (
-    <div className="">
+    <div className="h-[91.8vh]">
       <div className="px-5 lg:flex gap-10">
-        <div className="lg:w-[30%]">
+        <div className="lg:w-[30%] bg-slate-500 p-2 rounded-xl">
           <figure className="w-[100%]">
             <img
               className="w-full"
@@ -67,7 +67,7 @@ export default function CharacterDetail() {
           <h3>
             <span className="font-bold">Especie:</span> {character.species}
           </h3>
-          
+
           <p>
             <span className="font-bold">Género:</span> {character.gender}
           </p>
@@ -80,7 +80,9 @@ export default function CharacterDetail() {
           <p className="lg:text-[30px]">
             <span className="font-bold">Viene de:</span> {character.origin.name}
           </p>
-          <p className="my-3 font-bold">Episodios en los que aparece el personaje:</p>
+          <p className="my-3 font-bold">
+            Episodios en los que aparece el personaje:
+          </p>
           <div className="lg:flex flex-wrap gap-[20%] w-full lg:h-[70vh] lg:p-20 overflow-x-hidden lg:overflow-y-scroll">
             {episodes.map((episode: Episode) => (
               <EpisodeCard episode={episode} key={episode.id} />
