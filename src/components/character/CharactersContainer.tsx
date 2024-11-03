@@ -17,10 +17,11 @@ const CharactersContainer = () => {
   const { handleNext, handlePrevious } = usePaginator(fetchData);
 
   const page = useAppSelector((page) => page.pageReducer.value);
+  const buscar = useAppSelector((buscar) => buscar.searchReducer.value);
 
   useEffect(() => {
-    fetchData(`${API_CHARACTERS_URL}/?page=${page}`);
-  }, []);
+    fetchData(`${API_CHARACTERS_URL}/?page=${page}&name=${buscar}`);
+  }, [buscar]);
 
   return (
     <>
