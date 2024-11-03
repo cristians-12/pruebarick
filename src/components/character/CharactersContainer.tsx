@@ -33,15 +33,21 @@ const CharactersContainer = () => {
             className="flex gap-10 mt-3 justify-around flex-wrap"
             variants={container}
           >
-            {dataFetch.results.map((character: Character) => (
-              <CharacterCard character={character} key={character.id} />
-            ))}
+            {dataFetch.results ? (
+              dataFetch.results.map((character: Character) => (
+                <CharacterCard character={character} key={character.id} />
+              ))
+            ) : (
+              <p className="font-bold">No hay resultados</p>
+            )}
           </motion.ul>
-          <Paginator
-            props={dataFetch.info}
-            onPrevious={() => handlePrevious(dataFetch)}
-            onNext={() => handleNext(dataFetch)}
-          />
+          {dataFetch.results && (
+            <Paginator
+              props={dataFetch.info}
+              onPrevious={() => handlePrevious(dataFetch)}
+              onNext={() => handleNext(dataFetch)}
+            />
+          )}
         </>
       ) : (
         <Loader />
