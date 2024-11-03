@@ -59,7 +59,9 @@ const CharacterCard: React.FC<{ character: Character }> = ({ character }) => {
         <span className="font-bold w-full">{character.species}</span>
       </Link>
       <div className="flex w-full justify-between px-3 items-center">
-        <span className="font-bold w-[60%] text-ellipsis overflow-hidden whitespace-nowrap">{character.location.name}</span>
+        <span className="font-bold w-[60%] text-ellipsis overflow-hidden whitespace-nowrap">
+          {character.location.name}
+        </span>
         {isFavorite ? (
           <FaHeart
             fill="red"

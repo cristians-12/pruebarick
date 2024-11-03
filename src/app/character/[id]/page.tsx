@@ -68,12 +68,7 @@ export default function CharacterDetail() {
           <h3>
             <span className="font-bold">Especie:</span> {character.species}
           </h3>
-          <Link
-            className="cursor-pointer"
-            href={`/location/${character.id}`}
-          >
-            Origen: {character.origin.name}
-          </Link>
+          
           <p>
             <span className="font-bold">Género:</span> {character.gender}
           </p>
