@@ -30,7 +30,7 @@ const LocationDetail = () => {
   }, []);
 
   return location ? (
-    <div className="px-5">
+    <div className="px-5 h-auto">
       <h1 className="text-[30px] font-bold">{location.name}</h1>
       <p className="my-3">Personajes relacionados al lugar:</p>
       <div className="flex flex-wrap gap-10 justify-around">

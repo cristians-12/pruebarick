@@ -15,7 +15,7 @@ const NavBar: React.FC<{ children: ReactNode }> = ({ children }) => {
 
   return (
     <>
-      <nav className="flex fixed z-50 top-0 w-screen justify-between items-center lg:px-10 bg-slate-600 py-3">
+      <nav className="flex fixed z-50 top-0 w-screen justify-between items-center lg:px-10 bg-slate-900 py-3">
         <Link
           href={"/"}
           className="text-[#39f94f] text-[1.5rem] font-bold cursor-pointer"

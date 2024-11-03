@@ -10,6 +10,7 @@ body {
   background: linear-gradient(15deg, #0bdb2d, #30aa38, rgba(81, 126, 80, 1));
   background-size: 100%;
   background-repeat: no-repeat;
+  min-height: 100vh;
 }
 
 body {

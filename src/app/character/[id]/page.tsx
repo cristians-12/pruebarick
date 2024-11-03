@@ -37,7 +37,7 @@ export default function CharacterDetail() {
   }
 
   return (
-    <div className="h-[91.8vh]">
+    <div>
       <div className="px-5 lg:flex gap-10">
         <div className="lg:w-[30%] bg-slate-500 p-2 rounded-xl">
           <figure className="w-[100%]">
@@ -83,7 +83,7 @@ export default function CharacterDetail() {
           <p className="my-3 font-bold">
             Episodios en los que aparece el personaje:
           </p>
-          <div className="lg:flex flex-wrap gap-[20%] w-full lg:h-[70vh] lg:p-20 overflow-x-hidden lg:overflow-y-scroll">
+          <div className="lg:flex flex-wrap gap-x-[3%] h-auto justify-around gap-y-5 w-full lg:h-[70vh] lg:p-20 overflow-x-hidden lg:overflow-y-scroll">
             {episodes.map((episode: Episode) => (
               <EpisodeCard episode={episode} key={episode.id} />
             ))}
