@@ -22,7 +22,7 @@ const CharacterCard: React.FC<{ character: Character }> = ({ character }) => {
 
   return (
     <motion.div
-      whileHover={{ scale: 1.05 }}
+      whileHover={{ scale: 1.05, boxShadow: "0px 4px 15px rgba(0, 0, 0, 0.2)" }}
       transition={{ type: "spring", stiffness: 300 }}
       className=" cursor-pointer flex flex-col lg:w-[20%] w-[44%] items-center justify-center gap-3 bg-slate-50 text-black rounded-2xl py-2 lg:overflow-hidden"
       variants={item}
