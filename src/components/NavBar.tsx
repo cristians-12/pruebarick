@@ -19,6 +19,7 @@ const NavBar: React.FC<{ children: ReactNode }> = ({ children }) => {
         <Link
           href={"/"}
           className="text-[#39f94f] text-[1.5rem] font-bold cursor-pointer"
+          onClick={() => dispatch(resetPage())}
         >
           RickMortyApp
         </Link>
