@@ -19,11 +19,11 @@ const LocationCard: React.FC<{ location: Location }> = ({ location }) => {
   const isFavorite = favorites.some((element) => element.id === location.id);
 
   return (
-    <div className="w-[40%] h-[100px]">
+    <div className="lg:w-[40%] w-[70%] h-[100px]">
       <motion.div
         whileHover={{ scale: 1.05 }}
         transition={{ type: "spring", stiffness: 300 }}
-        className=" cursor-pointer flex flex-col items-center justify-center gap-3"
+        className=" cursor-pointer bg-slate-600 lg:p-3 p-1 rounded-xl flex flex-col items-center justify-center gap-3"
         variants={item}
         key={location.id}
       >

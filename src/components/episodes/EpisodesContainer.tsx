@@ -9,6 +9,7 @@ import EpisodeCard from "./EpisodeCard";
 import { Episode } from "../../../types/api/episodes";
 import { ResponseEpisode } from "../../../types/api/response";
 import { API_EPISODES_URL } from "../../../constants";
+import Loader from "../Loader";
 
 const EpisodesContainer = () => {
   const { fetchData, dataFetch } = useFetch<ResponseEpisode>();
@@ -20,7 +21,7 @@ const EpisodesContainer = () => {
 
   return (
     <>
-      {dataFetch && (
+      {dataFetch ? (
         <>
           <p className="text-[30px] px-5 my-5">Episodios:</p>
           <motion.ul
@@ -39,6 +40,8 @@ const EpisodesContainer = () => {
             onNext={() => handleNext(dataFetch)}
           />
         </>
+      ) : (
+        <Loader />
       )}
     </>
   );

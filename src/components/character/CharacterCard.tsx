@@ -49,7 +49,7 @@ const CharacterCard: React.FC<{ character: Character }> = ({ character }) => {
             ) : character.status === "Alive" ? (
               <>
 
-                <FaCircle fill="lightgreen" size={10} />
+                <FaCircle fill="green" size={10} />
               </>
             ) : (
               <FaCircle fill='gray' size={10} />

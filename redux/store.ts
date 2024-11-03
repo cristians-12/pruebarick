@@ -3,6 +3,7 @@ import favoritesReducer from "./features/favoritesSlice";
 import favoritesEpisodesReducer from "./features/favEpisodesSlice";
 import favoritesLocationReducer from "./features/favLocationSlice";
 import pageReducer from "./features/pageSlice";
+import searchReducer from "./features/searchSlice";
 
 export const store = configureStore({
   reducer: {
@@ -10,6 +11,7 @@ export const store = configureStore({
     favoritesEpisodesReducer,
     favoritesLocationReducer,
     pageReducer,
+    searchReducer
   },
 });
 
