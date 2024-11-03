@@ -5,24 +5,29 @@ import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { IoSearchOutline } from "react-icons/io5";
 import useNavbar from "../../hooks/navbar/useNavbar";
 import { resetPage } from "../../redux/features/pageSlice";
-// import { CiHeart } from 'react-icons/ci'
-// import { IoSearchOutline } from "react-icons/io5";
+import SearchModal from "./SearchModal";
+import useSearchModal from "../../hooks/searchmodal/useSearchModal";
 
 const NavBar: React.FC<{ children: ReactNode }> = ({ children }) => {
   const busqueda = useAppSelector((busqueda) => busqueda.searchReducer.value);
   const { handleInput } = useNavbar();
   const dispatch = useAppDispatch();
+  const { visible, handleVisible } = useSearchModal();
 
   return (
     <>
       <nav className="flex fixed z-50 top-0 w-screen justify-between items-center lg:px-10 bg-slate-900 py-3">
         <Link
           href={"/"}
-          className="text-[#39f94f] text-[1.5rem] font-bold cursor-pointer"
+          className="text-[#39f94f] text-[5vw] font-bold cursor-pointer"
           onClick={() => dispatch(resetPage())}
         >
           RickMortyApp
         </Link>
+
+        <figure onClick={handleVisible} className="lg:hidden">
+          <IoSearchOutline size={25} />
+        </figure>
 
         {/* <div className='flex gap-3 items-center cursor-pointer'>
                     <CiHeart size={25} />
@@ -58,6 +63,7 @@ const NavBar: React.FC<{ children: ReactNode }> = ({ children }) => {
         </div>
       </nav>
       {children}
+      {visible && <SearchModal handleVisible={handleVisible} />}
     </>
   );
 };
