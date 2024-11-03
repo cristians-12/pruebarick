@@ -24,7 +24,7 @@ const EpisodeCard: React.FC<{ episode: Episode }> = ({ episode }) => {
       <motion.div
         whileHover={{ scale: 1.05 }}
         transition={{ type: "spring", stiffness: 300 }}
-        className=" cursor-pointer flex flex-col bg-slate-600 lg:p-3 p-1 rounded-xl  items-center justify-center gap-3"
+        className=" cursor-pointer flex flex-col bg-slate-600 lg:p-3 p-1 rounded-xl items-center justify-center gap-3"
         variants={item}
         key={episode.id}
       >

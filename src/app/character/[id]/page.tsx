@@ -3,7 +3,6 @@ import React, { useEffect } from "react";
 import { Character } from "../../../../types/api/characters";
 // import Image from "next/image";
 import { FaCircle } from "react-icons/fa";
-import Link from "next/link";
 import { Episode } from "../../../../types/api/episodes";
 import EpisodeCard from "@/components/episodes/EpisodeCard";
 import { API_CHARACTERS_URL } from "../../../../constants";
