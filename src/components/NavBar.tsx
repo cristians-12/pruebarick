@@ -19,7 +19,7 @@ const NavBar: React.FC<{ children: ReactNode }> = ({ children }) => {
       <nav className="flex fixed z-50 top-0 w-screen justify-between items-center lg:px-10 bg-slate-900 py-3">
         <Link
           href={"/"}
-          className="text-[#39f94f] text-[5vw] font-bold cursor-pointer"
+          className="text-[#39f94f] text-[5vw] lg:text-[30px] font-bold cursor-pointer"
           onClick={() => dispatch(resetPage())}
         >
           RickMortyApp
