@@ -1,15 +1,14 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
-import { item } from "../../../utils/motion";
 import Link from "next/link";
-import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
-import { Episode } from "../../../types/api/episodes";
-import {
-  addFavoriteEp,
-  removeFavoriteEp,
-} from "../../../redux/features/favEpisodesSlice";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { Episode } from "@/types/api/episodes";
+import { item } from "@/utils/motion";
+import { addFavoriteEp, removeFavoriteEp } from "@/redux/features/favEpisodesSlice";
+
+
 
 const EpisodeCard: React.FC<{ episode: Episode }> = ({ episode }) => {
   const favorites = useAppSelector(

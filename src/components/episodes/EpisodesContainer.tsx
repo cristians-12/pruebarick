@@ -1,15 +1,15 @@
 "use client";
 import React, { useEffect } from "react";
-import useFetch from "../../../hooks/fetch/useFetch";
-import { container } from "../../../utils/motion";
 import { motion } from "framer-motion";
 import Paginator from "../Paginator";
-import usePaginator from "../../../hooks/usePaginator";
 import EpisodeCard from "./EpisodeCard";
-import { Episode } from "../../../types/api/episodes";
-import { ResponseEpisode } from "../../../types/api/response";
-import { API_EPISODES_URL } from "../../../constants";
 import Loader from "../Loader";
+import useFetch from "@/hooks/fetch/useFetch";
+import { ResponseEpisode } from "@/types/api/response";
+import usePaginator from "@/hooks/usePaginator";
+import { API_EPISODES_URL } from "@/constants";
+import { container } from "@/utils/motion";
+import { Episode } from "@/types/api/episodes";
 
 const EpisodesContainer = () => {
   const { fetchData, dataFetch } = useFetch<ResponseEpisode>();

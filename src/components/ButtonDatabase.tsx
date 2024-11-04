@@ -1,6 +1,6 @@
 "use client";
+import useFirebase from "@/hooks/firebase/useFirebase";
 import React from "react";
-import useFirebase from "../../hooks/firebase/useFirebase";
 
 const ButtonDatabase: React.FC = () => {
   const { addDocument } = useFirebase();

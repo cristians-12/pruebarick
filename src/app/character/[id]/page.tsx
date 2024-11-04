@@ -1,14 +1,14 @@
 "use client";
 import React, { useEffect } from "react";
-import { Character } from "../../../../types/api/characters";
 // import Image from "next/image";
 import { FaCircle } from "react-icons/fa";
-import { Episode } from "../../../../types/api/episodes";
 import EpisodeCard from "@/components/episodes/EpisodeCard";
-import { API_CHARACTERS_URL } from "../../../../constants";
 import { useParams } from "next/navigation";
 import Loader from "@/components/Loader";
-import usePageData from "../../../../hooks/usePageData";
+import usePageData from "@/hooks/usePageData";
+import { API_CHARACTERS_URL } from "@/constants";
+import { Character } from "@/types/api/characters";
+import { Episode } from "@/types/api/episodes";
 
 export default function CharacterDetail() {
   const { character, episodes, changeCharacter, changeEpisodes } =

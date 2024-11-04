@@ -1,16 +1,11 @@
 "use client";
 import React from "react";
-import { Character } from "../../../types/api/characters";
 import { motion } from "framer-motion";
-// import Image from "next/image";
-import { item } from "../../../utils/motion";
 import Link from "next/link";
-import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
 import { FaCircle, FaHeart, FaRegHeart } from "react-icons/fa";
-import {
-  addFavorite,
-  removeFavorite,
-} from "../../../redux/features/favoritesSlice";
+import { Character } from "@/types/api/characters";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { item } from "@/utils/motion";
 
 const CharacterCard: React.FC<{ character: Character }> = ({ character }) => {
   const favorites = useAppSelector(

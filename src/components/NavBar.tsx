@@ -1,12 +1,15 @@
 "use client";
 import Link from "next/link";
 import React, { ReactNode } from "react";
-import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+
 import { IoSearchOutline } from "react-icons/io5";
-import useNavbar from "../../hooks/navbar/useNavbar";
-import { resetPage } from "../../redux/features/pageSlice";
+
 import SearchModal from "./SearchModal";
-import useSearchModal from "../../hooks/searchmodal/useSearchModal";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import useNavbar from "@/hooks/navbar/useNavbar";
+import useSearchModal from "@/hooks/searchmodal/useSearchModal";
+import { resetPage } from "@/redux/features/pageSlice";
+
 
 const NavBar: React.FC<{ children: ReactNode }> = ({ children }) => {
   const busqueda = useAppSelector((busqueda) => busqueda.searchReducer.value);

@@ -1,9 +1,9 @@
+import { nextPage, prevPage } from "@/redux/features/pageSlice";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { InfoResponse } from "@/types/api/response";
 import React from "react";
 
 import { MdNavigateBefore, MdNavigateNext } from "react-icons/md";
-import { InfoResponse } from "../../types/api/response";
-import { useAppDispatch, useAppSelector } from "../../redux/hooks";
-import { nextPage, prevPage } from "../../redux/features/pageSlice";
 
 const Paginator: React.FC<{
   props: InfoResponse;

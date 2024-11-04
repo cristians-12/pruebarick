@@ -1,16 +1,16 @@
 "use client";
 import React, { useEffect } from "react";
-import useFetch from "../../../hooks/fetch/useFetch";
-import { container } from "../../../utils/motion";
-import { motion } from "framer-motion";
-import CharacterCard from "./CharacterCard";
-import { Character } from "../../../types/api/characters";
-import Paginator from "../Paginator";
-import usePaginator from "../../../hooks/usePaginator";
-import { ResponseCharacter } from "../../../types/api/response";
-import { API_CHARACTERS_URL } from "../../../constants";
-import { useAppSelector } from "../../../redux/hooks";
 import Loader from "../Loader";
+import useFetch from "@/hooks/fetch/useFetch";
+import { ResponseCharacter } from "@/types/api/response";
+import usePaginator from "@/hooks/usePaginator";
+import { useAppSelector } from "@/redux/hooks";
+import { API_CHARACTERS_URL } from "@/constants";
+import { motion } from "framer-motion";
+import { container } from "@/utils/motion";
+import { Character } from "@/types/api/characters";
+import CharacterCard from "./CharacterCard";
+import Paginator from "../Paginator";
 
 const CharactersContainer = () => {
   const { fetchData, dataFetch } = useFetch<ResponseCharacter>();

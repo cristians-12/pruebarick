@@ -1,12 +1,12 @@
-'use client'
+"use client";
 import React, { useEffect } from "react";
-import { Character } from "../../../../types/api/characters";
 import CharacterCard from "@/components/character/CharacterCard";
-import { Location } from "../../../../types/api/locations";
 import { useParams } from "next/navigation";
-import { API_LOCATIONS_URL } from "../../../../constants";
-import usePageData from "../../../../hooks/usePageData";
 import Loader from "@/components/Loader";
+import usePageData from "@/hooks/usePageData";
+import { API_LOCATIONS_URL } from "@/constants";
+import { Location } from "@/types/api/locations";
+import { Character } from "@/types/api/characters";
 
 const LocationDetail = () => {
   const { id } = useParams();

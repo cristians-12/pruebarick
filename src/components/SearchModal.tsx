@@ -1,7 +1,7 @@
+import useNavbar from "@/hooks/navbar/useNavbar";
+import { useAppSelector } from "@/redux/hooks";
 import React from "react";
 import { IoMdClose } from "react-icons/io";
-import { useAppSelector } from "../../redux/hooks";
-import useNavbar from "../../hooks/navbar/useNavbar";
 
 const SearchModal: React.FC<{ handleVisible: () => void }> = ({
   handleVisible,

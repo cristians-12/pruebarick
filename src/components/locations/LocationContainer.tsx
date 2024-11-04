@@ -1,14 +1,14 @@
 "use client";
 import React, { useEffect } from "react";
-import useFetch from "../../../hooks/fetch/useFetch";
-import { container } from "../../../utils/motion";
 import { motion } from "framer-motion";
 import Paginator from "../Paginator";
-import usePaginator from "../../../hooks/usePaginator";
-import { ResponseLocation } from "../../../types/api/response";
-import { Location } from "../../../types/api/locations";
 import LocationCard from "./LocationCard";
-import { API_LOCATIONS_URL } from "../../../constants";
+import { ResponseLocation } from "@/types/api/response";
+import usePaginator from "@/hooks/usePaginator";
+import useFetch from "@/hooks/fetch/useFetch";
+import { API_LOCATIONS_URL } from "@/constants";
+import { container } from "@/utils/motion";
+import { Location } from "@/types/api/locations";
 
 const LocationContainer = () => {
   const { fetchData, dataFetch } = useFetch<ResponseLocation>();

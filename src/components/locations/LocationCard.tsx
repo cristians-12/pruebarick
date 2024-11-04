@@ -1,14 +1,14 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { item } from "../../../utils/motion";
 import Link from "next/link";
-import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
-import { Location } from "../../../types/api/locations";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { item } from "@/utils/motion";
 import {
   addFavoriteLoc,
   removeFavoriteLoc,
-} from "../../../redux/features/favLocationSlice";
+} from "@/redux/features/favLocationSlice";
+import { Location } from "@/types/api/locations";
 
 const LocationCard: React.FC<{ location: Location }> = ({ location }) => {
   const favorites = useAppSelector(
